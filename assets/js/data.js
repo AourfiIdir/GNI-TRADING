@@ -14,7 +14,7 @@ const SITE = {
   /* URL publique du site (utilisée par le QR code).
      Laisser "" pour utiliser automatiquement l'URL de la page.
      Une fois le site hébergé, collez ici l'adresse, ex : "https://gni-trading.com" */
-  publicUrl: "",
+  publicUrl: "https://aourfiidir.github.io/GNI-TRADING/",
   positioning: "Marchés mondiaux. Matières premières physiques. Relations durables.",
   intro: "GNI — Global Négoce International est une société de négoce international de matières premières physiques. Nous développons des relations durables avec nos partenaires sur les marchés de l'énergie, de l'agriculture, des métaux et de l'élevage.",
   comingSoon: "Notre nouvelle plateforme digitale est en préparation. Nos activités, notre expertise et nos marchés internationaux seront à découvrir très prochainement.",

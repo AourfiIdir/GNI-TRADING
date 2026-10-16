@@ -1,0 +1,16 @@
+# Source catalogue (hors site) et fichiers système à ne pas publier
+cat.pdf
+*.pdf
+*:Zone.Identifier
+*.Zone.Identifier
+
+# Images sources à la racine (les versions utilisées sont dans assets/img/)
+/1L.jpeg
+/5L.jpeg
+/10L.jpeg
+/puroilia.jpeg
+/puroiliaF.jpeg
+
+# Divers
+_site/
+.DS_Store
