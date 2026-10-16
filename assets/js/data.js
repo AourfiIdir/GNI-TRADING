@@ -348,30 +348,30 @@ const PATPRO = [
   }
 ];
 
-/* Puroilia - Huile d'olive */
+/* Puroilia - Huile de tournesol */
 const PUROILIA = {
   name: "PUROILIA",
-  tagline: "Huile d'olive de qualité supérieure",
-  intro: "PUROILIA sélectionne des huiles d'olive de qualité supérieure pour les professionnels et les particuliers exigeants. Disponible en plusieurs formats pour répondre à tous les besoins.",
+  tagline: "Huile de tournesol de qualité supérieure",
+  intro: "PUROILIA propose une huile de tournesol de qualité supérieure pour les professionnels et les particuliers exigeants. Disponible en plusieurs formats pour répondre à tous les besoins.",
   cover: "assets/img/puroilia-front.jpeg",
   products: [
     {
       id: "puroilia-1l",
-      name: "Huile d'olive PUROILIA",
+      name: "Huile de tournesol PUROILIA",
       format: "1 Litre",
       image: "assets/img/puroilia-1l.jpeg",
       desc: "Format idéal pour un usage quotidien en cuisine et en table."
     },
     {
       id: "puroilia-5l",
-      name: "Huile d'olive PUROILIA",
+      name: "Huile de tournesol PUROILIA",
       format: "5 Litres",
       image: "assets/img/puroilia-5l.jpeg",
       desc: "Format familial et petites cuisines professionnelles."
     },
     {
       id: "puroilia-10l",
-      name: "Huile d'olive PUROILIA",
+      name: "Huile de tournesol PUROILIA",
       format: "10 Litres",
       image: "assets/img/puroilia-10l.jpeg",
       desc: "Format professionnel pour restaurants et collectivités."

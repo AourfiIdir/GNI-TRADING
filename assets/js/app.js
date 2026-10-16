@@ -33,7 +33,7 @@ function renderChrome(active) {
           <div>
             <h4>Activités</h4>
             <a href="patpro.html">PATPRO Distribution</a>
-            <a href="puroilia.html">PUROILIA — Huile d'olive</a>
+            <a href="puroilia.html">PUROILIA — Huile de tournesol</a>
             <a href="index.html#contact">Contact</a>
           </div>
           <div>
