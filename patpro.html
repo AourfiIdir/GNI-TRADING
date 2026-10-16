@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PATPRO Distribution — Catalogue agroalimentaire | GNI</title>
+  <meta name="description" content="Catalogue PATPRO Distribution : purées de fruits, fourrages, pâtes aromatiques, gélatines, pectines, colorants, sucres, sels et consommables. Marque du groupe GNI.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="patpro">
+  <div id="site-header"></div>
+
+  <section class="hero" style="padding:0">
+    <div class="container" style="padding-top:64px;padding-bottom:64px">
+      <span class="eyebrow">Agroalimentaire · Marque du groupe GNI</span>
+      <h1>Catalogue PATPRO</h1>
+      <p>Vente et distribution de produits agroalimentaires destinés aux professionnels des métiers de bouche. Cliquez sur un produit pour voir sa fiche complète.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <nav class="cat-nav" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:44px">
+        <a class="btn btn-outline" href="#patisserie">Pâtisserie</a>
+        <a class="btn btn-outline" href="#boissons">Boissons</a>
+        <a class="btn btn-outline" href="#colorants">Colorants</a>
+        <a class="btn btn-outline" href="#stabilisants">Stabilisants</a>
+        <a class="btn btn-outline" href="#sucres">Sucres</a>
+        <a class="btn btn-outline" href="#sels">Sels</a>
+        <a class="btn btn-outline" href="#consommables">Consommables</a>
+      </nav>
+      <div id="catalogue"></div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--cream-2)">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Pourquoi PATPRO</span>
+        <h2>Un partenaire de confiance</h2>
+      </div>
+      <div class="features">
+        <div class="feature reveal"><div class="ic">📦</div><h4>Large gamme</h4><p>Une diversité de produits pour tous vos besoins.</p></div>
+        <div class="feature reveal"><div class="ic">🏅</div><h4>Meilleure qualité</h4><p>Des produits sélectionnés avec exigence.</p></div>
+        <div class="feature reveal"><div class="ic">💯</div><h4>Meilleurs prix</h4><p>Le meilleur rapport qualité / prix.</p></div>
+        <div class="feature reveal"><div class="ic">🚚</div><h4>Livraison 58 wilayas</h4><p>Livraison disponible partout en Algérie.</p></div>
+        <div class="feature reveal"><div class="ic">🤝</div><h4>Conseils</h4><p>Accompagnement personnalisé.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact-patpro">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Contact distribution</span>
+        <h2>Commander & s'informer</h2>
+      </div>
+      <div class="contact-wrap">
+        <div class="vcard reveal">
+          <div class="logo">PATPRO <span>DISTRIBUTION</span></div>
+          <div class="role">SARL · Alger</div>
+          <div class="lines">
+            <div class="line"><span class="ic">📞</span><span id="patpro-tel"></span></div>
+            <div class="line"><span class="ic">📍</span><span id="patpro-address"></span></div>
+            <div class="line"><span class="ic">✉️</span><span id="patpro-email"></span></div>
+            <div class="line"><span class="ic">👍</span><span id="patpro-facebook"></span></div>
+          </div>
+          <div class="actions">
+            <a class="btn btn-gold" id="patpro-call" href="#">Appeler</a>
+            <a class="btn btn-outline" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4)" id="patpro-mail" href="#">E-mail</a>
+          </div>
+        </div>
+        <div class="qr-box reveal">
+          <img id="qr-img" alt="QR code du site">
+          <h3>Scannez le catalogue</h3>
+          <p>Le QR code ouvre ce catalogue. Présentez-le à vos clients pour qu'ils découvrent toute la gamme.</p>
+          <p style="word-break:break-all;font-size:0.75rem;color:var(--muted);margin-top:12px" id="qr-link"></p>
+          <p id="qr-note" style="display:none;text-align:left;font-size:0.78rem;color:#8a5a00;background:#fff6e0;border:1px solid #f0dca6;border-radius:10px;padding:10px 12px;margin-top:14px"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <div class="modal" id="modal"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
