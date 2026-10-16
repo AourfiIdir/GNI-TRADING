@@ -211,8 +211,15 @@ function renderQR() {
   const img = $("#qr-img");
   if (!img) return;
   const fallback = location.href.split("#")[0];
-  const url = (SITE.publicUrl && SITE.publicUrl.trim()) || fallback;
-  img.src = "https://api.qrserver.com/v1/create-qr-code/?size=440x440&margin=10&data=" + encodeURIComponent(url);
+  const publicUrl = (SITE.publicUrl && SITE.publicUrl.trim()) || "";
+  const url = publicUrl || fallback;
+
+  /* Si une URL publique est définie, on utilise un QR code local (fiable, aucun
+     service externe). Sinon, on génère à la volée pour le test local. */
+  img.src = publicUrl
+    ? "assets/img/qr.svg"
+    : "https://api.qrserver.com/v1/create-qr-code/?size=440x440&margin=10&data=" + encodeURIComponent(url);
+
   const link = $("#qr-link");
   if (link) link.textContent = url;
 
