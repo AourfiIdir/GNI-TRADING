@@ -16,6 +16,13 @@ const SITE = {
      Une fois le site hébergé, collez ici l'adresse, ex : "https://gni-trading.com" */
   publicUrl: "https://aourfiidir.github.io/GNI-TRADING/",
   positioning: "Marchés mondiaux. Matières premières physiques. Relations durables.",
+  /* Personne de contact (carte de visite) */
+  contact: {
+    name: "Mustapha BENNACER",
+    role: "Export Manager",
+    phone: "+33 6 64 47 53 50",
+    phoneRaw: "+33664475350"
+  },
   intro: "GNI — Global Négoce International est une société de négoce international de matières premières physiques. Nous développons des relations durables avec nos partenaires sur les marchés de l'énergie, de l'agriculture, des métaux et de l'élevage.",
   comingSoon: "Notre nouvelle plateforme digitale est en préparation. Nos activités, notre expertise et nos marchés internationaux seront à découvrir très prochainement.",
   sectors: [
@@ -24,16 +31,6 @@ const SITE = {
     { n: "03", name: "Métaux", desc: "Métaux de base & ressources minérales", icon: "⚙️" },
     { n: "04", name: "Élevage", desc: "Viande & produits d'origine animale", icon: "🐄" }
   ]
-};
-
-/* Contact propre à la marque PATPRO (distribution) */
-const PATPRO_CONTACT = {
-  legal: "SARL PATPRO DISTRIBUTION",
-  address: "Coop El Adala, Jolie Vue, Kouba, Alger",
-  phones: ["0560 02 99 51", "0560 02 99 53"],
-  email: "patpro.distribution@gmail.com",
-  facebook: "PatPro Distribution",
-  maps: "https://maps.google.com/?q=" + encodeURIComponent("Coop El Adala Jolie Vue Kouba Alger"),
 };
 
 /* Chaque catégorie possède : id, nom, bannière (image), description, et une liste de produits */
@@ -377,10 +374,4 @@ const PUROILIA = {
       desc: "Format professionnel pour restaurants et collectivités."
     }
   ]
-};
-
-/* Réseaux / liens externes */
-const LINKS = {
-  facebook: "https://www.facebook.com/search/top?q=patpro%20distribution",
-  maps: PATPRO_CONTACT.maps
 };

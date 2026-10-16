@@ -117,8 +117,8 @@ function openProduct(catId, prodId) {
         <h2>${p.name}</h2>
         <div class="modal-meta">${rows.join("")}</div>
         <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn btn-primary" href="tel:${PATPRO_CONTACT.phones[0].replace(/\s/g, "")}">Commander / infos</a>
-          <a class="btn btn-outline" href="mailto:${PATPRO_CONTACT.email}?subject=${encodeURIComponent("Demande d'information — " + p.name)}">Demander par e-mail</a>
+          <a class="btn btn-primary" href="tel:${SITE.contact.phoneRaw}">Commander / infos</a>
+          <a class="btn btn-outline" href="mailto:${SITE.email}?subject=${encodeURIComponent("Demande d'information — " + p.name)}">Demander par e-mail</a>
         </div>
       </div>
     </div>`;
@@ -179,31 +179,28 @@ function renderPuroilia() {
     </div>`).join("");
 }
 
-/* ------- Carte de visite (remplissage) ------- */
-function renderContact() {
-  const set = (id, val) => { const el = $("#" + id); if (el) el.textContent = val; };
-  set("vc-email", SITE.email);
-  set("vc-website", SITE.websiteLabel);
-  set("vc-positioning", SITE.positioning);
-  set("vc-puro", PUROILIA.name);
-  set("vc-patpro-tel", PATPRO_CONTACT.phones.join(" / "));
-  set("vc-patpro-address", PATPRO_CONTACT.address);
-  const siteLink = $("#vc-site");
-  if (siteLink) siteLink.href = SITE.website;
-  const patproTel = $("#vc-patpro-call");
-  if (patproTel) patproTel.href = "tel:" + PATPRO_CONTACT.phones[0].replace(/\s/g, "");
-  const mail = $("#vc-mail");
-  if (mail) mail.href = "mailto:" + SITE.email;
-
-  // Bloc contact PATPRO (page patpro)
-  set("patpro-tel", PATPRO_CONTACT.phones.join(" / "));
-  set("patpro-address", PATPRO_CONTACT.address);
-  set("patpro-email", PATPRO_CONTACT.email);
-  set("patpro-facebook", PATPRO_CONTACT.facebook);
-  const pc = $("#patpro-call");
-  if (pc) pc.href = "tel:" + PATPRO_CONTACT.phones[0].replace(/\s/g, "");
-  const pm = $("#patpro-mail");
-  if (pm) pm.href = "mailto:" + PATPRO_CONTACT.email;
+/* ------- Carte de visite (rendu) ------- */
+function renderVCard() {
+  const c = SITE.contact;
+  $$("[data-vcard]").forEach((mount) => {
+    mount.classList.add("vcard", "reveal");
+    mount.innerHTML = `
+      <div class="logo">GNI <span>GLOBAL NÉGOCE</span></div>
+      <div class="person">
+        <div class="p-name">${c.name}</div>
+        <div class="role">${c.role}</div>
+      </div>
+      <div class="lines">
+        <div class="line"><span class="ic">📞</span><a href="tel:${c.phoneRaw}">${c.phone}</a></div>
+        <div class="line"><span class="ic">✉️</span><a href="mailto:${SITE.email}">${SITE.email}</a></div>
+        <div class="line"><span class="ic">🌐</span><a href="${SITE.website}" target="_blank" rel="noopener">${SITE.websiteLabel}</a></div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-gold" data-vcard-download>＋ Ajouter au contact</button>
+        <a class="btn btn-outline" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4)" href="tel:${c.phoneRaw}">Appeler</a>
+      </div>`;
+  });
+  $$("[data-vcard-download]").forEach((b) => b.addEventListener("click", downloadVCard));
 }
 
 /* ------- QR code ------- */
@@ -236,23 +233,23 @@ function renderQR() {
 
 /* ------- Carte de visite (vCard) ------- */
 function downloadVCard() {
+  const c = SITE.contact;
   const v = [
     "BEGIN:VCARD",
     "VERSION:3.0",
-    "FN:" + SITE.full,
-    "ORG:" + SITE.legal,
-    "TEL;TYPE=WORK:" + PATPRO_CONTACT.phones[0].replace(/\s/g, ""),
-    "TEL;TYPE=WORK:" + PATPRO_CONTACT.phones[1].replace(/\s/g, ""),
+    "N:BENNACER;Mustapha;;;",
+    "FN:" + c.name,
+    "ORG:" + SITE.full,
+    "TITLE:" + c.role,
+    "TEL;TYPE=CELL:" + c.phoneRaw,
     "EMAIL:" + SITE.email,
     "URL:" + SITE.website,
-    "ADR;TYPE=WORK:;;" + PATPRO_CONTACT.address + ";;;;",
-    "NOTE:" + SITE.tagline,
     "END:VCARD",
   ].join("\n");
   const blob = new Blob([v], { type: "text/vcard" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = "gni-global-negoce-international.vcf";
+  a.download = "gni-mustapha-bennacer.vcf";
   a.click();
   URL.revokeObjectURL(a.href);
 }
@@ -274,10 +271,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCatalogue();
   renderPuroilia();
   renderSectors();
-  renderContact();
+  renderVCard();
   renderQR();
   setupReveal();
-  const vc = $("#vcard-btn");
-  if (vc) vc.addEventListener("click", downloadVCard);
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 });
