@@ -16,7 +16,7 @@ function renderChrome(active) {
         <nav class="nav">
           <a href="index.html" class="${active === "home" ? "active" : ""}">Accueil</a>
           <a href="patpro.html" class="${active === "patpro" ? "active" : ""}">PATPRO</a>
-          <a href="puroilia.html" class="${active === "puroilia" ? "active" : ""}">PUROILIA</a>
+          <a href="puroilia.html" class="${active === "puroilia" ? "active" : ""}">PUR'OILIA</a>
           <a href="index.html#contact" class="${active === "contact" ? "active" : ""}">Contact</a>
         </nav>
       </div>
@@ -33,7 +33,7 @@ function renderChrome(active) {
           <div>
             <h4>Activités</h4>
             <a href="patpro.html">PATPRO Distribution</a>
-            <a href="puroilia.html">PUROILIA — Huile de tournesol</a>
+            <a href="puroilia.html">PUR'OILIA — Huile de tournesol</a>
             <a href="index.html#contact">Contact</a>
           </div>
           <div>

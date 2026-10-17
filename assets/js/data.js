@@ -347,28 +347,28 @@ const PATPRO = [
 
 /* Puroilia - Huile de tournesol */
 const PUROILIA = {
-  name: "PUROILIA",
+  name: "PUR'OILIA",
   tagline: "Huile de tournesol de qualité supérieure",
-  intro: "PUROILIA propose une huile de tournesol de qualité supérieure pour les professionnels et les particuliers exigeants. Disponible en plusieurs formats pour répondre à tous les besoins.",
+  intro: "PUR'OILIA propose une huile de tournesol de qualité supérieure pour les professionnels et les particuliers exigeants. Disponible en plusieurs formats pour répondre à tous les besoins.",
   cover: "assets/img/puroilia-front.jpeg",
   products: [
     {
       id: "puroilia-1l",
-      name: "Huile de tournesol PUROILIA",
+      name: "Huile de tournesol PUR'OILIA",
       format: "1 Litre",
       image: "assets/img/puroilia-1l.jpeg",
       desc: "Format idéal pour un usage quotidien en cuisine et en table."
     },
     {
       id: "puroilia-5l",
-      name: "Huile de tournesol PUROILIA",
+      name: "Huile de tournesol PUR'OILIA",
       format: "5 Litres",
       image: "assets/img/puroilia-5l.jpeg",
       desc: "Format familial et petites cuisines professionnelles."
     },
     {
       id: "puroilia-10l",
-      name: "Huile de tournesol PUROILIA",
+      name: "Huile de tournesol PUR'OILIA",
       format: "10 Litres",
       image: "assets/img/puroilia-10l.jpeg",
       desc: "Format professionnel pour restaurants et collectivités."
