@@ -29,7 +29,7 @@ const SITE = {
     { n: "01", name: "Énergie", desc: "Pétrole & produits pétroliers", icon: "⛽" },
     { n: "02", name: "Agriculture", desc: "Céréales & matières premières agricoles", icon: "🌾" },
     { n: "03", name: "Métaux", desc: "Métaux de base & ressources minérales", icon: "⚙️" },
-    { n: "04", name: "Élevage", desc: "Viande & produits d'origine animale", icon: "🐄" }
+    { n: "04", name: "Élevage", desc: "GNI Vivant — bétail, volailles & viandes", icon: "🐄" }
   ]
 };
 
@@ -344,6 +344,63 @@ const PATPRO = [
     ]
   }
 ];
+
+/* GNI Vivant - Élevage, bétail & produits d'origine animale */
+const VIVANT = {
+  name: "GNI Vivant",
+  tagline: "Élevage, bétail & produits d'origine animale",
+  intro: "GNI Vivant accompagne les éleveurs, les abattoirs, les boucheries et les professionnels de la restauration dans l'approvisionnement en animaux vivants, viandes et produits d'origine animale. Une offre suivie, contrôlée et adaptée aux exigences du marché algérien.",
+  categories: [
+    {
+      id: "bovins",
+      name: "Bovins",
+      subtitle: "Bœuf & veau",
+      image: "assets/img/vivant/bovins.jpg",
+      desc: "Bovins de boucherie, veaux et génisses sélectionnés auprès d'élevages partenaires pour une viande de qualité constante.",
+      items: ["Bovins de boucherie", "Veaux", "Génisses"]
+    },
+    {
+      id: "ovins",
+      name: "Ovins",
+      subtitle: "Agneau & mouton",
+      image: "assets/img/vivant/ovins.jpg",
+      desc: "Agneaux et moutons issus de filières d'élevage suivies, adaptés aux boucheries, aux marchés et aux grandes occasions.",
+      items: ["Agneaux", "Moutons", "Brebis"]
+    },
+    {
+      id: "caprins",
+      name: "Caprins",
+      subtitle: "Chèvre & chevreau",
+      image: "assets/img/vivant/caprins.jpg",
+      desc: "Chèvres et chevreaux sélectionnés pour leur conformation et leur qualité, selon les besoins de nos clients.",
+      items: ["Chèvres", "Chevreaux"]
+    },
+    {
+      id: "volailles",
+      name: "Volailles",
+      subtitle: "Poulet, dinde & pintade",
+      image: "assets/img/vivant/volailles.jpg",
+      desc: "Volailles vivantes ou prêtes à la vente, issues d'élevages respectant les normes sanitaires et de bien-être animal.",
+      items: ["Poulets", "Dindes", "Pintades"]
+    },
+    {
+      id: "oeufs",
+      name: "Œufs",
+      subtitle: "Œufs de consommation",
+      image: "assets/img/vivant/oeufs.jpg",
+      desc: "Œufs frais conditionnés et livrés dans le respect de la chaîne du froid, pour les commerces et la restauration.",
+      items: ["Œufs frais", "Conditionnement", "Livraison"]
+    },
+    {
+      id: "viandes",
+      name: "Viandes & découpes",
+      subtitle: "Bœuf, agneau & volaille",
+      image: "assets/img/vivant/viandes.jpg",
+      desc: "Découpes professionnelles et viandes conditionnées, préparées selon les attentes des boucheries et des restaurants.",
+      items: ["Découpes", "Conditionnement", "Sur mesure"]
+    }
+  ]
+};
 
 /* Puroilia - Huile de tournesol */
 const PUROILIA = {

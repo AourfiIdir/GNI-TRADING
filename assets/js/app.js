@@ -17,6 +17,7 @@ function renderChrome(active) {
           <a href="index.html" class="${active === "home" ? "active" : ""}">Accueil</a>
           <a href="patpro.html" class="${active === "patpro" ? "active" : ""}">PATPRO</a>
           <a href="puroilia.html" class="${active === "puroilia" ? "active" : ""}">PUR'OILIA</a>
+          <a href="vivant.html" class="${active === "vivant" ? "active" : ""}">Vivant</a>
           <a href="index.html#contact" class="${active === "contact" ? "active" : ""}">Contact</a>
         </nav>
       </div>
@@ -34,6 +35,7 @@ function renderChrome(active) {
             <h4>Activités</h4>
             <a href="patpro.html">PATPRO Distribution</a>
             <a href="puroilia.html">PUR'OILIA — Huile de tournesol</a>
+            <a href="vivant.html">GNI Vivant — Élevage & viandes</a>
             <a href="index.html#contact">Contact</a>
           </div>
           <div>
@@ -217,6 +219,32 @@ function openPuroilia(prodId) {
   $$("[data-close]", modal).forEach((b) => b.addEventListener("click", closeModal));
 }
 
+/* ------- Rendu GNI Vivant ------- */
+function renderVivant() {
+  const root = $("#vivant-categories");
+  if (!root) return;
+
+  root.innerHTML = VIVANT.categories.map((c) => `
+    <article class="vivant-card reveal">
+      <div class="media"><img src="${c.image}" alt="${c.name}" loading="lazy"></div>
+      <div class="body">
+        <span class="tag">${c.subtitle}</span>
+        <h3>${c.name}</h3>
+        <p>${c.desc}</p>
+        <ul>${c.items.map((i) => `<li class="chip">${i}</li>`).join("")}</ul>
+      </div>
+    </article>`).join("");
+
+  const intro = $("#vivant-intro");
+  if (intro) intro.textContent = VIVANT.intro;
+
+  const tel = $("#vivant-tel");
+  if (tel) tel.href = "tel:" + SITE.contact.phoneRaw;
+
+  const mail = $("#vivant-mail");
+  if (mail) mail.href = "mailto:" + SITE.email + "?subject=" + encodeURIComponent("Demande de devis — GNI Vivant");
+}
+
 /* ------- Carte de visite (rendu) ------- */
 function renderVCard() {
   const c = SITE.contact;
@@ -308,6 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderChrome(page === "home" && location.hash === "#contact" ? "contact" : page);
   renderCatalogue();
   renderPuroilia();
+  renderVivant();
   renderSectors();
   renderVCard();
   renderQR();
