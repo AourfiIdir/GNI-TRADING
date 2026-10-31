@@ -169,14 +169,52 @@ function renderPuroilia() {
   const root = $("#puro-products");
   if (!root) return;
   root.innerHTML = PUROILIA.products.map((p) => `
-    <div class="product" style="cursor:default" data-puro="${p.id}">
+    <button class="product" data-puro="${p.id}">
       <div class="thumb"><img src="${p.image}" alt="${p.name} ${p.format}" loading="lazy"></div>
       <div class="info">
         <h3>${p.name}</h3>
         <div class="formats"><span class="chip">${p.format}</span></div>
         <p style="color:var(--muted);font-size:0.85rem;margin-top:8px">${p.desc}</p>
+        <span class="more">Agrandir l'image →</span>
       </div>
-    </div>`).join("");
+    </button>`).join("");
+
+  $$(".product", root).forEach((el) =>
+    el.addEventListener("click", () => openPuroilia(el.dataset.puro))
+  );
+}
+
+/* ------- Fiche produit PUR'OILIA (agrandissement) ------- */
+function openPuroilia(prodId) {
+  const p = PUROILIA.products.find((x) => x.id === prodId);
+  if (!p) return;
+
+  const modal = $("#modal");
+  modal.innerHTML = `
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+      <button class="modal-close" data-close aria-label="Fermer">✕</button>
+      <div class="modal-media modal-media-puro">
+        <a href="${p.image}" target="_blank" rel="noopener" title="Ouvrir l'image en grand">
+          <img src="${p.image}" alt="${p.name} ${p.format}">
+        </a>
+      </div>
+      <div class="modal-body">
+        <span class="tag">${PUROILIA.name}</span>
+        <h2>${p.name}</h2>
+        <div class="modal-meta">
+          ${row("Format", p.format)}
+          ${row("Description", p.desc)}
+        </div>
+        <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="tel:${SITE.contact.phoneRaw}">Commander / infos</a>
+          <a class="btn btn-outline" href="mailto:${SITE.email}?subject=${encodeURIComponent("Demande d'information — " + p.name + " " + p.format)}">Demander par e-mail</a>
+        </div>
+      </div>
+    </div>`;
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+  $$("[data-close]", modal).forEach((b) => b.addEventListener("click", closeModal));
 }
 
 /* ------- Carte de visite (rendu) ------- */
