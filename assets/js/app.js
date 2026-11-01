@@ -343,13 +343,106 @@ function downloadVCard() {
 }
 
 /* ------- Animations à l'apparition ------- */
+const REVEAL_SELECTOR = [
+  ".reveal", ".section-head", ".biz-card", ".cat-block", ".product", ".feature",
+  ".qr-box", ".soon", ".contact-wrap > *", ".cat-nav", ".v-section-head",
+  ".v-intro-grid > *", ".v-split > *", ".v-quality-media", ".v-quality-copy",
+  ".v-moment", ".v-pledge", ".v-stat", ".v-cta-inner", ".v-filiere",
+  ".v-derived", ".v-gallery-item", ".v-contact-grid > *", ".vcard", ".v-order"
+].join(",");
+
 function setupReveal() {
-  const els = $$(".reveal");
+  const els = $$(REVEAL_SELECTOR);
   if (!els.length) return;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced || !("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("in"));
+    return;
+  }
+
+  els.forEach((el) => {
+    const parent = el.parentElement;
+    if (!parent) return;
+    const siblings = [...parent.children].filter((child) => child.matches(REVEAL_SELECTOR));
+    const index = siblings.indexOf(el);
+    if (index > 0) el.style.setProperty("--reveal-delay", `${Math.min(index * 70, 420)}ms`);
+  });
+
   const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  els.forEach((e) => io.observe(e));
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("in");
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+
+  els.forEach((el) => io.observe(el));
+}
+
+/* ------- Compteurs animés ------- */
+function setupCounters() {
+  const els = $$("[data-count]");
+  if (!els.length) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!("IntersectionObserver" in window)) return;
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = Number(el.dataset.count);
+      const suffix = el.dataset.suffix || "";
+      io.unobserve(el);
+      if (!Number.isFinite(target)) return;
+
+      const duration = 1300;
+      const start = performance.now();
+      el.textContent = `0${suffix}`;
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = `${Math.round(target * eased)}${suffix}`;
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.6 });
+
+  els.forEach((el) => io.observe(el));
+}
+
+/* ------- Mouvements au scroll ------- */
+function setupMotion() {
+  const header = $(".site-header");
+  const heroImage = $(".v-hero-media img");
+  const progress = document.createElement("div");
+  progress.className = "scroll-progress";
+  progress.setAttribute("aria-hidden", "true");
+  document.body.appendChild(progress);
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let ticking = false;
+
+  const update = () => {
+    const y = window.scrollY || window.pageYOffset || 0;
+    if (header) header.classList.toggle("scrolled", y > 10);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = `scaleX(${max > 0 ? Math.min(y / max, 1) : 0})`;
+    if (!reduced && heroImage && y < 1200) {
+      heroImage.style.transform = `translate3d(0, ${y * 0.14}px, 0)`;
+    }
+    ticking = false;
+  };
+
+  const request = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  };
+
+  window.addEventListener("scroll", request, { passive: true });
+  window.addEventListener("resize", request, { passive: true });
+  update();
 }
 
 /* ------- Init ------- */
@@ -363,5 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderVCard();
   renderQR();
   setupReveal();
+  setupCounters();
+  setupMotion();
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 });
