@@ -23,13 +23,13 @@ const SITE = {
     phone: "+33 6 64 47 53 50",
     phoneRaw: "+33664475350"
   },
-  intro: "GNI — Global Négoce International est une société de négoce international de matières premières physiques. Nous développons des relations durables avec nos partenaires sur les marchés de l'énergie, de l'agriculture, des métaux et de l'élevage.",
+  intro: "GNI — Global Négoce International est une société de négoce international de matières premières physiques. Nous développons des relations durables avec nos partenaires sur les marchés de l'énergie, de l'agriculture, des métaux, du bétail et des produits carnés.",
   comingSoon: "Notre nouvelle plateforme digitale est en préparation. Nos activités, notre expertise et nos marchés internationaux seront à découvrir très prochainement.",
   sectors: [
     { n: "01", name: "Énergie", desc: "Pétrole & produits pétroliers", icon: "⛽" },
     { n: "02", name: "Agriculture", desc: "Céréales & matières premières agricoles", icon: "🌾" },
     { n: "03", name: "Métaux", desc: "Métaux de base & ressources minérales", icon: "⚙️" },
-    { n: "04", name: "Élevage", desc: "GNI Vivant — bétail, volailles & viandes", icon: "🐄" }
+    { n: "04", name: "Bétail & viandes", desc: "GNI Vivant — négoce d'animaux vivants & produits carnés", icon: "🐄" }
   ]
 };
 
@@ -345,18 +345,18 @@ const PATPRO = [
   }
 ];
 
-/* GNI Vivant - Élevage, bétail & produits d'origine animale */
+/* GNI Vivant - Négoce de bétail vivant & produits carnés */
 const VIVANT = {
   name: "GNI Vivant",
-  tagline: "Élevage, bétail & produits d'origine animale",
-  intro: "GNI Vivant accompagne les éleveurs, les abattoirs, les boucheries et les professionnels de la restauration dans l'approvisionnement en animaux vivants, viandes et produits d'origine animale. Une offre suivie, contrôlée et adaptée aux exigences du marché algérien.",
+  tagline: "Bétail vivant & produits carnés",
+  intro: "GNI Vivant est l'activité de négoce d'animaux vivants et de produits carnés du groupe GNI. Nous achetons et revendons des bovins, ovins, caprins, volailles, œufs et viandes auprès des professionnels, avec une offre suivie et adaptée aux exigences du marché algérien.",
   categories: [
     {
       id: "bovins",
       name: "Bovins",
       subtitle: "Bœuf & veau",
       image: "assets/img/vivant/bovins.jpg",
-      desc: "Bovins de boucherie, veaux et génisses sélectionnés auprès d'élevages partenaires pour une viande de qualité constante.",
+      desc: "Bovins de boucherie, veaux et génisses achetés auprès de fournisseurs sélectionnés pour une viande de qualité constante.",
       items: ["Bovins de boucherie", "Veaux", "Génisses"]
     },
     {
@@ -364,7 +364,7 @@ const VIVANT = {
       name: "Ovins",
       subtitle: "Agneau & mouton",
       image: "assets/img/vivant/ovins.jpg",
-      desc: "Agneaux et moutons issus de filières d'élevage suivies, adaptés aux boucheries, aux marchés et aux grandes occasions.",
+      desc: "Agneaux et moutons proposés aux boucheries, aux marchés et aux grandes occasions, avec un suivi de l'origine et des lots.",
       items: ["Agneaux", "Moutons", "Brebis"]
     },
     {
@@ -372,7 +372,7 @@ const VIVANT = {
       name: "Caprins",
       subtitle: "Chèvre & chevreau",
       image: "assets/img/vivant/caprins.jpg",
-      desc: "Chèvres et chevreaux sélectionnés pour leur conformation et leur qualité, selon les besoins de nos clients.",
+      desc: "Chèvres et chevreaux sélectionnés pour leur conformation et leur qualité, selon la demande de nos clients.",
       items: ["Chèvres", "Chevreaux"]
     },
     {
@@ -380,7 +380,7 @@ const VIVANT = {
       name: "Volailles",
       subtitle: "Poulet, dinde & pintade",
       image: "assets/img/vivant/volailles.jpg",
-      desc: "Volailles vivantes ou prêtes à la vente, issues d'élevages respectant les normes sanitaires et de bien-être animal.",
+      desc: "Poulets, dindes et pintades destinés aux boucheries et à la restauration, disponibles vivants ou prêts à la vente.",
       items: ["Poulets", "Dindes", "Pintades"]
     },
     {
@@ -399,6 +399,61 @@ const VIVANT = {
       desc: "Découpes professionnelles et viandes conditionnées, préparées selon les attentes des boucheries et des restaurants.",
       items: ["Découpes", "Conditionnement", "Sur mesure"]
     }
+  ],
+  derived: [
+    {
+      name: "Viandes hachées",
+      tag: "Préparations",
+      image: "assets/img/vivant/ground-beef.jpg",
+      desc: "Hachés de bœuf, d'agneau ou de volaille préparés selon la granulométrie et le taux de matière grasse demandés.",
+      items: ["Bœuf", "Agneau", "Volaille"]
+    },
+    {
+      name: "Merguez & saucisses",
+      tag: "Élaborés",
+      image: "assets/img/vivant/merguez.jpg",
+      desc: "Merguez, saucisses fraîches et préparations assaisonnées, conditionnées pour les boucheries et la restauration.",
+      items: ["Merguez", "Saucisses fraîches", "Préparations"]
+    },
+    {
+      name: "Charcuterie & salaisons",
+      tag: "Charcuterie",
+      image: "assets/img/vivant/charcuterie.jpg",
+      desc: "Saucissons, charcuteries et salaisons sélectionnés pour compléter l'offre de votre commerce.",
+      items: ["Saucissons", "Charcuterie", "Salaisons"]
+    },
+    {
+      name: "Découpes & pièces",
+      tag: "Découpe",
+      image: "assets/img/vivant/lamb-cuts.jpg",
+      desc: "Découpes de bœuf, d'agneau et de volaille adaptées à vos recettes et à vos formats de vente.",
+      items: ["Bœuf", "Agneau", "Volaille"]
+    },
+    {
+      name: "Volaille découpée",
+      tag: "Volaille",
+      image: "assets/img/vivant/chicken-raw.jpg",
+      desc: "Filets, cuisses, ailes et pièces de volaille conditionnées selon vos formats de vente et de restauration.",
+      items: ["Filets", "Cuisses", "Ailes"]
+    },
+    {
+      name: "Œufs & ovoproduits",
+      tag: "Œufs",
+      image: "assets/img/vivant/oeufs.jpg",
+      desc: "Œufs frais et conditionnements adaptés aux commerces, à la restauration et aux préparations professionnelles.",
+      items: ["Œufs frais", "Conditionnement", "Livraison"]
+    }
+  ],
+  gallery: [
+    { image: "assets/img/vivant/broilers.jpg", caption: "Poulets de chair" },
+    { image: "assets/img/vivant/chicken-market.jpg", caption: "Volailles prêtes à la vente" },
+    { image: "assets/img/vivant/chicken-raw.jpg", caption: "Découpes de volaille" },
+    { image: "assets/img/vivant/merguez.jpg", caption: "Merguez & saucisses" },
+    { image: "assets/img/vivant/ground-beef.jpg", caption: "Viandes hachées" },
+    { image: "assets/img/vivant/charcuterie.jpg", caption: "Charcuterie" },
+    { image: "assets/img/vivant/lamb-cuts.jpg", caption: "Découpes d'agneau" },
+    { image: "assets/img/vivant/mixed-meat.jpg", caption: "Assortiment de viandes" },
+    { image: "assets/img/vivant/butcher.jpg", caption: "Viandes de boucherie" }
   ]
 };
 

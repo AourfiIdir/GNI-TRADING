@@ -35,7 +35,7 @@ function renderChrome(active) {
             <h4>Activités</h4>
             <a href="patpro.html">PATPRO Distribution</a>
             <a href="puroilia.html">PUR'OILIA — Huile de tournesol</a>
-            <a href="vivant.html">GNI Vivant — Élevage & viandes</a>
+            <a href="vivant.html">GNI Vivant — Bétail & viandes</a>
             <a href="index.html#contact">Contact</a>
           </div>
           <div>
@@ -225,21 +225,43 @@ function renderVivant() {
   if (!root) return;
 
   root.innerHTML = VIVANT.categories.map((c) => `
-    <article class="vivant-card reveal">
-      <div class="media"><img src="${c.image}" alt="${c.name}" loading="lazy"></div>
-      <div class="body">
-        <span class="tag">${c.subtitle}</span>
+    <article class="v-filiere reveal">
+      <div class="v-media"><img src="${c.image}" alt="${c.name}" loading="lazy"></div>
+      <div class="v-filiere-body">
+        <span class="v-filiere-tag">${c.subtitle}</span>
         <h3>${c.name}</h3>
         <p>${c.desc}</p>
-        <ul>${c.items.map((i) => `<li class="chip">${i}</li>`).join("")}</ul>
+        <ul>${c.items.map((i) => `<li>${i}</li>`).join("")}</ul>
       </div>
     </article>`).join("");
+
+  const derived = $("#vivant-derived");
+  if (derived) derived.innerHTML = VIVANT.derived.map((d) => `
+    <article class="v-derived reveal">
+      <div class="v-media"><img src="${d.image}" alt="${d.name}" loading="lazy"></div>
+      <div class="v-derived-body">
+        <span class="v-filiere-tag">${d.tag}</span>
+        <h3>${d.name}</h3>
+        <p>${d.desc}</p>
+        <ul>${d.items.map((i) => `<li>${i}</li>`).join("")}</ul>
+      </div>
+    </article>`).join("");
+
+  const gallery = $("#vivant-gallery");
+  if (gallery) gallery.innerHTML = VIVANT.gallery.map((g) => `
+    <figure class="v-gallery-item reveal">
+      <img src="${g.image}" alt="${g.caption}" loading="lazy">
+      <figcaption>${g.caption}</figcaption>
+    </figure>`).join("");
 
   const intro = $("#vivant-intro");
   if (intro) intro.textContent = VIVANT.intro;
 
   const tel = $("#vivant-tel");
   if (tel) tel.href = "tel:" + SITE.contact.phoneRaw;
+
+  const telCta = $("#vivant-cta-tel");
+  if (telCta) telCta.href = "tel:" + SITE.contact.phoneRaw;
 
   const mail = $("#vivant-mail");
   if (mail) mail.href = "mailto:" + SITE.email + "?subject=" + encodeURIComponent("Demande de devis — GNI Vivant");
