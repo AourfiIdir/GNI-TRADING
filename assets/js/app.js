@@ -235,18 +235,6 @@ function renderVivant() {
       </div>
     </article>`).join("");
 
-  const derived = $("#vivant-derived");
-  if (derived) derived.innerHTML = VIVANT.derived.map((d) => `
-    <article class="v-derived reveal">
-      <div class="v-media"><img src="${d.image}" alt="${d.name}" loading="lazy"></div>
-      <div class="v-derived-body">
-        <span class="v-filiere-tag">${d.tag}</span>
-        <h3>${d.name}</h3>
-        <p>${d.desc}</p>
-        <ul>${d.items.map((i) => `<li>${i}</li>`).join("")}</ul>
-      </div>
-    </article>`).join("");
-
   const gallery = $("#vivant-gallery");
   if (gallery) gallery.innerHTML = VIVANT.gallery.map((g) => `
     <figure class="v-gallery-item reveal">
@@ -348,7 +336,7 @@ const REVEAL_SELECTOR = [
   ".qr-box", ".soon", ".contact-wrap > *", ".cat-nav", ".v-section-head",
   ".v-intro-grid > *", ".v-split > *", ".v-quality-media", ".v-quality-copy",
   ".v-moment", ".v-pledge", ".v-stat", ".v-cta-inner", ".v-filiere",
-  ".v-derived", ".v-gallery-item", ".v-contact-grid > *", ".vcard", ".v-order"
+  ".v-gallery-item", ".v-contact-grid > *", ".vcard", ".v-order"
 ].join(",");
 
 function setupReveal() {

@@ -400,57 +400,10 @@ const VIVANT = {
       items: ["Découpes", "Conditionnement", "Sur mesure"]
     }
   ],
-  derived: [
-    {
-      name: "Viandes hachées",
-      tag: "Préparations",
-      image: "assets/img/vivant/ground-beef.jpg",
-      desc: "Hachés de bœuf, d'agneau ou de volaille préparés selon la granulométrie et le taux de matière grasse demandés.",
-      items: ["Bœuf", "Agneau", "Volaille"]
-    },
-    {
-      name: "Merguez & saucisses",
-      tag: "Élaborés",
-      image: "assets/img/vivant/merguez.jpg",
-      desc: "Merguez, saucisses fraîches et préparations assaisonnées, conditionnées pour les boucheries et la restauration.",
-      items: ["Merguez", "Saucisses fraîches", "Préparations"]
-    },
-    {
-      name: "Charcuterie & salaisons",
-      tag: "Charcuterie",
-      image: "assets/img/vivant/charcuterie.jpg",
-      desc: "Saucissons, charcuteries et salaisons sélectionnés pour compléter l'offre de votre commerce.",
-      items: ["Saucissons", "Charcuterie", "Salaisons"]
-    },
-    {
-      name: "Découpes & pièces",
-      tag: "Découpe",
-      image: "assets/img/vivant/lamb-cuts.jpg",
-      desc: "Découpes de bœuf, d'agneau et de volaille adaptées à vos recettes et à vos formats de vente.",
-      items: ["Bœuf", "Agneau", "Volaille"]
-    },
-    {
-      name: "Volaille découpée",
-      tag: "Volaille",
-      image: "assets/img/vivant/chicken-raw.jpg",
-      desc: "Filets, cuisses, ailes et pièces de volaille conditionnées selon vos formats de vente et de restauration.",
-      items: ["Filets", "Cuisses", "Ailes"]
-    },
-    {
-      name: "Œufs & ovoproduits",
-      tag: "Œufs",
-      image: "assets/img/vivant/oeufs.jpg",
-      desc: "Œufs frais et conditionnements adaptés aux commerces, à la restauration et aux préparations professionnelles.",
-      items: ["Œufs frais", "Conditionnement", "Livraison"]
-    }
-  ],
   gallery: [
     { image: "assets/img/vivant/broilers.jpg", caption: "Poulets de chair" },
     { image: "assets/img/vivant/chicken-market.jpg", caption: "Volailles prêtes à la vente" },
     { image: "assets/img/vivant/chicken-raw.jpg", caption: "Découpes de volaille" },
-    { image: "assets/img/vivant/merguez.jpg", caption: "Merguez & saucisses" },
-    { image: "assets/img/vivant/ground-beef.jpg", caption: "Viandes hachées" },
-    { image: "assets/img/vivant/charcuterie.jpg", caption: "Charcuterie" },
     { image: "assets/img/vivant/lamb-cuts.jpg", caption: "Découpes d'agneau" },
     { image: "assets/img/vivant/mixed-meat.jpg", caption: "Assortiment de viandes" },
     { image: "assets/img/vivant/butcher.jpg", caption: "Viandes de boucherie" }
